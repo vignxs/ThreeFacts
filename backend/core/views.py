@@ -1,15 +1,18 @@
+from django.shortcuts import render
+
+# Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
-from ThreefactsCore.serializers import UserLoginSerializer, UserRegistrationSerializer
-from ThreefactsCore.models import User
+from core.serializers import UserLoginSerializer, UserRegistrationSerializer
+from core.models import User
 
 class UserRegistrationView(APIView):
     def post(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid():
-            user = User.objects.create(email=serializer.validated_data['email'])
+            user = User.objects.create(**serializer.validated_data )
             user.set_password(serializer.validated_data['password'])
             user.save()
             return Response({'message': 'User registered successfully'}, status=201)

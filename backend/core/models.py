@@ -1,7 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
@@ -27,6 +24,11 @@ class User(AbstractBaseUser):
         verbose_name="email address",
         max_length=255,
         unique=True,
+    )
+    
+    username = models.CharField(
+        verbose_name="username",
+        max_length=255,
     )
 
     objects = MyUserManager()

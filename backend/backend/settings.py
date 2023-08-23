@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pg1y9rgu+5niun3_=xq-xp1e#1$j@8*7z+sr^szey)j^wu!@5b'
+SECRET_KEY = 'django-insecure-zgwmgb(4j@51mu+&3f+-d-zs5-(!re*#^^to3p33oh%sxw%u($'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,10 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "ThreefactsCore",
+    "core",
     'rest_framework',
     'rest_framework.authtoken',
 ]
+
+AUTH_USER_MODEL = 'core.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-AUTH_USER_MODEL = 'ThreefactsCore.User'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
