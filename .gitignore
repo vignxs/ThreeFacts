@@ -1,0 +1,71 @@
+**venv
+.pyc
+**__pycache__
+# TypeScript
+node_modules/
+dist/
+*.log
+*.js
+*.js.map
+*.tsbuildinfo
+*.d.ts
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build
+build/
+dist/
+
+# Dependency folders
+# (create empty '.gitkeep' files in these folders to keep them in the repository)
+public/uploads/
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.user
+*.sln.docstates
+*.log
+*.tmp
+
+# Misc
+*.DS_Store
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+ThreeFacts/
+env/
+env.bak/
+*.env
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# macOS
+.DS_Store
+
+# Editor backups
+*~
