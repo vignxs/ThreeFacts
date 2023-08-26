@@ -3,12 +3,22 @@ import Stack from "@mui/material/Stack";
 import React from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { sxStyles, textFieldStyles, typographyStyle } from "./Constants";
+import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "./AxiosHelper";
 
 const Register = () => {
-const [name, setName] = React.useState("");
-const [email, setEmail] = React.useState("");
-const [password, setPassword] = React.useState("");
-const [confirmPassword, setComfirmPassword] = React.useState("");
+  const history = useNavigate();
+
+  // const initialFormData = Object.freeze({
+  //   email : '',
+  //   username: '',
+  //   password: ''
+  // })
+
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setComfirmPassword] = React.useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -23,26 +33,33 @@ const [confirmPassword, setComfirmPassword] = React.useState("");
     }
   };
 
-  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const handleSubmit = async () => {
-    const body = JSON.stringify({
-      username: name,
-      email: email,
-      password: password,
-    });
-    console.log(body);
+    try {
+      const response = await axiosInstance.post("/users/register/", {
+        email: email,
+        username: name,
+        password: password,
+      });
+
+      if (response.status === 201) {
+        history("/signin"); 
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
+    }
   };
 
-   React.useEffect(() => {
-     ValidatorForm.addValidationRule("isPasswordMatch", (value:string) => {
-       return value === password;
-     });
+  React.useEffect(() => {
+    ValidatorForm.addValidationRule("isPasswordMatch", (value: string) => {
+      return value === password;
+    });
 
-     return () => {
-       ValidatorForm.removeValidationRule("isPasswordMatch");
-     };
-   }, [password]);
+    return () => {
+      ValidatorForm.removeValidationRule("isPasswordMatch");
+    };
+  }, [password]);
 
   return (
     <div

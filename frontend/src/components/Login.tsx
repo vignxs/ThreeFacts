@@ -3,11 +3,14 @@ import Stack from "@mui/material/Stack";
 import React from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { sxStyles, textFieldStyles, typographyStyle } from "./Constants";
+import { axiosInstance } from "./AxiosHelper";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  const history = useNavigate()
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (name === "email") {
@@ -17,12 +20,25 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    const body = JSON.stringify({
-      email: email,
-      password: password,
-    });
-    console.log(body);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await axiosInstance.post("/token/", {
+        email: email,
+        password: password,
+      });
+
+      if (response.status === 200) {
+        localStorage.setItem("access_token", response.data.access);
+        localStorage.setItem("refresh_token", response.data.refresh);
+        axiosInstance.defaults.headers['Authorization'] =
+        'JWT ' + localStorage.getItem('access_token');
+        history("/");
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
+    }
   };
 
   return (
