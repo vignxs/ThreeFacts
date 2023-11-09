@@ -39,7 +39,7 @@ const Login = () => {
     } catch (error) {
       console.error("Error creating user:", error);
     }
-  };
+  }; 
 
   return (
     <div
@@ -67,6 +67,7 @@ const Login = () => {
           <Box width={60} height={60}>
             <img
               src="/logo.png"
+              loading="lazy"
               alt="Logo"
               style={{ maxWidth: "100%", height: "auto" }}
             />
@@ -79,6 +80,7 @@ const Login = () => {
         <Box maxWidth={720} width={500} height={800}>
           <img
             src="/img2.jpg"
+            loading="lazy"
             alt="welcome"
             style={{ maxWidth: "100%", height: "auto" }}
           />
@@ -90,7 +92,6 @@ const Login = () => {
           variant="h6"
           sx={{
             fontSize: "1.5rem",
-            fontFamily: "Outfit",
             fontWeight: "500",
             lineHeight: "1.5",
           }}
@@ -112,7 +113,6 @@ const Login = () => {
             variant="body2"
             sx={{
               // fontSize: "1.5rem",
-              fontFamily: "Outfit",
               margin: "0",
               // fontWeight: "500",
               // lineHeight: "1.5",
@@ -125,15 +125,11 @@ const Login = () => {
             component="a"
             href="/register"
             variant="subtitle2"
+            color="primary"
             sx={{
-              // fontSize: "1.5rem",
-              fontFamily: "Outfit",
               fontWeight: "500",
               marginLeft: "4px !important",
-              color: `rgb(92, 156, 214)`,
-              // lineHeight: "1.5",
             }}
-            color="primary"
           >
             Create an Account
           </Typography>
@@ -155,7 +151,7 @@ const Login = () => {
               value={email}
               onChange={handleInputChange}
               InputLabelProps={{
-                style: { color: "#000000", fontFamily: "Outfit" },
+                style: { color: "#000000" },
               }}
               fullWidth
               required
@@ -167,7 +163,7 @@ const Login = () => {
               type="password"
               value={password}
               InputLabelProps={{
-                style: { color: "#000000", fontFamily: "Outfit" },
+                style: { color: "#000000" },
               }}
               onChange={handleInputChange}
               fullWidth
@@ -184,7 +180,6 @@ const Login = () => {
               <Typography
                 variant="body2"
                 sx={{
-                  fontFamily: "Outfit",
                   textDecoration: "underline",
                   cursor: "pointer",
                 }}
@@ -199,9 +194,9 @@ const Login = () => {
               variant="contained"
               sx={{
                 mt: 1,
-                bgcolor: "rgb(92, 156, 214)",
+                bgcolor: "#90caf9",
                 "&:hover": {
-                  bgcolor: "rgb(92, 156, 214)", // Change the color on hover
+                  bgcolor: "#90caf9", // Change the color on hover
                 },
               }}
             >

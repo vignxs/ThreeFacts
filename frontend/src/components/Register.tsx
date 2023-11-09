@@ -87,6 +87,7 @@ const Register = () => {
           <Box width={60} height={60}>
             <img
               src="/logo.png"
+              loading="lazy"
               alt="Logo"
               style={{ maxWidth: "100%", height: "auto" }}
             />
@@ -99,6 +100,7 @@ const Register = () => {
         <Box maxWidth={720} width={500} height={800}>
           <img
             src="/img3.jpg"
+            loading="lazy"
             alt="welcome"
             style={{ maxWidth: "100%", height: "auto" }}
           />
@@ -110,7 +112,6 @@ const Register = () => {
           variant="h6"
           sx={{
             fontSize: "1.5rem",
-            fontFamily: "Outfit",
             fontWeight: "500",
             lineHeight: "1.5",
           }}
@@ -132,7 +133,6 @@ const Register = () => {
             variant="body2"
             sx={{
               // fontSize: "1.5rem",
-              fontFamily: "Outfit",
               margin: "0",
               // fontWeight: "500",
               // lineHeight: "1.5",
@@ -147,10 +147,8 @@ const Register = () => {
             variant="subtitle2"
             sx={{
               // fontSize: "1.5rem",
-              fontFamily: "Outfit",
               fontWeight: "500",
               marginLeft: "4px !important",
-              color: `rgb(92, 156, 214)`,
               // lineHeight: "1.5",
             }}
             color="primary"
@@ -173,7 +171,7 @@ const Register = () => {
               value={name}
               onChange={handleInputChange}
               InputLabelProps={{
-                style: { color: "#000000", fontFamily: "Outfit" },
+                style: { color: "#000000" },
               }}
               fullWidth
               required
@@ -187,7 +185,7 @@ const Register = () => {
               value={email}
               onChange={handleInputChange}
               InputLabelProps={{
-                style: { color: "#000000", fontFamily: "Outfit" },
+                style: { color: "#000000" },
               }}
               fullWidth
               required
@@ -200,7 +198,7 @@ const Register = () => {
               type="password"
               value={password}
               InputLabelProps={{
-                style: { color: "#000000", fontFamily: "Outfit" },
+                style: { color: "#000000" },
               }}
               onChange={handleInputChange}
               fullWidth
@@ -215,7 +213,7 @@ const Register = () => {
               validators={["isPasswordMatch", "required"]}
               errorMessages={["Password mismatch", "This field is required"]}
               InputLabelProps={{
-                style: { color: "#000000", fontFamily: "Outfit" },
+                style: { color: "#000000" },
               }}
               onChange={handleInputChange}
               fullWidth
@@ -228,9 +226,9 @@ const Register = () => {
               variant="contained"
               sx={{
                 mt: 1,
-                bgcolor: "rgb(92, 156, 214)",
+                bgcolor: "#90caf9",
                 "&:hover": {
-                  bgcolor: "rgb(92, 156, 214)", // Change the color on hover
+                  bgcolor: "#90caf9", // Change the color on hover
                 },
               }}
             >
