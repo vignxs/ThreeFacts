@@ -15,6 +15,7 @@ import { CircularProgress } from "@mui/material";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 
 import SendIcon from "@mui/icons-material/Send";
+import { axiosInstance } from "./AxiosHelper";
 
 // Define a type for the message
 type Message = {
@@ -42,28 +43,17 @@ export const ThreeFacts = () => {
 
       try {
         // Make the API call
-        const response = await fetch("http://127.0.0.1:8001/chain/invoke", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            input: {
-              topic: input,
-            },
-            config: {},
-            kwargs: {},
-          }),
+        const response = await axiosInstance.post("/llm/three-facts-llm/", {
+          input_param: input,
         });
 
-        if (response.ok) {
-          const responseData = await response.json();
+        if (response.status === 200) {
+          const responseData = await response.data;
           console.log(responseData);
           // Process the API response and add it to the chat
           const botReply: Message = {
             sender: "bot",
-            text: responseData.output.content || "No response from the server.",
+            text: responseData.result || "No response from the server.",
           };
           setMessages((prevMessages) => [...prevMessages, botReply]);
         } else {

@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("three_facts.urls", namespace="three_facts")),
     path('api/', include("three_facts_api.urls", namespace="three_facts_api")),
+    path('api/llm/', include("llm_backend.urls", namespace="three_facts_model")),
     path('api/users/', include("users.urls", namespace="users")),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

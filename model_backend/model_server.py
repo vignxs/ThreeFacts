@@ -7,6 +7,7 @@ from langchain.prompts import ChatPromptTemplate
 import os
 
 
+os.environ['OPENAI_API_KEY'] = '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'
 
 app = FastAPI(
   title="LangChain Server",
