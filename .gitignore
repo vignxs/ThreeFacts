@@ -18,6 +18,7 @@ yarn-error.log
 build/
 dist/
 
+apikey_secrets.py
 # Dependency folders
 # (create empty '.gitkeep' files in these folders to keep them in the repository)
 public/uploads/

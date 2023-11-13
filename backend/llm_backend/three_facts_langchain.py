@@ -5,7 +5,7 @@ from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.memory.chat_message_histories import RedisChatMessageHistory
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 
 def threefacts_llm(input_param):
