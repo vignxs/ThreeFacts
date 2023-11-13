@@ -1,11 +1,8 @@
-import os
 from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.memory.chat_message_histories import RedisChatMessageHistory
-
-os.environ['OPENAI_API_KEY'] = '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'
 
 
 def threefacts_llm(input_param):
