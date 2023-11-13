@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ChatApp from "./components/ChatApp";
 import Login from "./components/Login";
 import Register  from "./components/Register";
 import { ThreeFacts } from "./components/ThreeFacts";
