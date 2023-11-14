@@ -295,7 +295,7 @@ export default function ResponsiveAppBar(props: Props) {
                   textDecoration: "none",
                 }}
               >
-                ThreeFacts
+                SnowDrop.ai
               </Typography>
             </Box>
             <Box sx={{ flexGrow: 0 }}>
