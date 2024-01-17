@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useState, MouseEvent } from "react";
-import jwtDecode, { JwtPayload } from "jwt-decode";
+// import jwtDecode, { JwtPayload } from "jwt-decode";
 import { axiosInstance } from "./AxiosHelper";
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
@@ -55,25 +55,25 @@ function ElevationScroll(props: Props) {
 const ProfileButton: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [username, setUsername] = React.useState("");
+  const [username, setUsername] = React.useState("Admin");
 
-  interface DecodedToken extends JwtPayload {
-    email: string;
-    token_type: string;
-    exp: number; // Token expiration timestamp
-    iat: number; // Token issued timestamp
-    jti: string; // JSON Token Identifier (unique token identifier)
-  }
+  // interface DecodedToken extends JwtPayload {
+  //   email: string;
+  //   token_type: string;
+  //   exp: number; // Token expiration timestamp
+  //   iat: number; // Token issued timestamp
+  //   jti: string; // JSON Token Identifier (unique token identifier)
+  // }
 
 
   React.useEffect(() => {
-    // Check if user is already logged in
+  //   // Check if user is already logged in
     const token = localStorage.getItem('access_token');
     if (token) {
-      const decodedToken: DecodedToken = jwtDecode(token);
-      console.log(decodedToken);
+  //     const decodedToken: DecodedToken = jwtDecode(token);
+  //     console.log(decodedToken);
       setIsLoggedIn(true);
-      setUsername(decodedToken.email.split("@")[0]);
+  //     setUsername(decodedToken.email.split("@")[0]);
     }
   }, []);
 

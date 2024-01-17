@@ -1,0 +1,66 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ThreeFacts",
+    "dateExported": "2024-01-14T07:31:57.230Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "0101ffe7-637a-476a-996b-822c0d30b139",
+            "colId": "6ae54f53-fb81-4157-8d9f-8fc6abb93117",
+            "containerId": "",
+            "name": "user-login",
+            "url": "http://127.0.0.1:8000/api/login/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-21T19:42:31.300Z",
+            "modified": "2023-08-23T19:19:29.669Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"vignxs@gmail.com\",\n  \"password\": \"vignxs\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "55b19636-c065-435d-9846-504ce9c23538",
+            "colId": "6ae54f53-fb81-4157-8d9f-8fc6abb93117",
+            "containerId": "",
+            "name": "user-create",
+            "url": "http://127.0.0.1:8000/api/users/register/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-21T19:43:19.795Z",
+            "modified": "2023-08-26T08:42:30.265Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"vignxs\",\n  \"email\": \"vignxs1@gmail.com\",\n  \"password\": \"vignxs\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ba3eaf0e-ee61-4382-b7f7-02e34ee114eb",
+            "colId": "6ae54f53-fb81-4157-8d9f-8fc6abb93117",
+            "containerId": "",
+            "name": "get token",
+            "url": "http://127.0.0.1:8000/api/token/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-23T19:28:31.980Z",
+            "modified": "2023-09-07T12:22:54.577Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"vignxs@gmail.com\",\n  \"password\": \"Admin12!@\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

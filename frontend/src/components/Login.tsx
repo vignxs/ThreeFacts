@@ -3,8 +3,14 @@ import Stack from "@mui/material/Stack";
 import React from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { sxStyles, textFieldStyles, typographyStyle } from "./Constants";
-import { axiosInstance } from "./AxiosHelper";
+import { axiosInstance } from "./axios/Login";
 import { useNavigate } from "react-router-dom";
+import GoogleIcon from "@mui/icons-material/Google";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+import FacebookLogin from "react-facebook-login";  
+import { convertoken } from "./axios/ConvertToken";
+//  import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -24,22 +30,31 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axiosInstance.post("/token/", {
-        email: email,
+      const response = await axiosInstance.post("/auth/token/", {
+        username: email,
         password: password,
+        grant_type: "password",
+        client_id: "2eTlSN910YobgMQHLKqSJpC0Do9QptymlZ9ksmBD",
+        client_secret: "36Ao8iYmiNFJ8ePGTNQLV2JitKBWApr1avVrV0SoIN6B3ZioSwjV6PCNbaA2nnYnAv8E2DVXNecO9kkoEDFrVXtofaIcHZ9HAuC9LDct5S7jD9OCahjd2jv4Qu5yKepf"
       });
 
       if (response.status === 200) {
-        localStorage.setItem("access_token", response.data.access);
-        localStorage.setItem("refresh_token", response.data.refresh);
-        axiosInstance.defaults.headers['Authorization'] =
-        'JWT ' + localStorage.getItem('access_token');
+        localStorage.setItem("access_token", response.data.access_token);
+        localStorage.setItem("refresh_token", response.data.refresh_token);
         history("/");
       }
     } catch (error) {
       console.error("Error creating user:", error);
     }
   }; 
+
+  const responseFacebook = (response) => {
+    console.log(response);
+    convertoken(response.accessToken)
+    history("/");
+
+
+  };
 
   return (
     <div
@@ -133,6 +148,20 @@ const Login = () => {
           >
             Create an Account
           </Typography>
+        </Stack>
+        <Stack direction="row" alignItems="center" spacing={2}>
+          <Button variant="outlined" startIcon={<GoogleIcon />} />
+          <Typography variant="p" color="initial">
+            or
+          </Typography>
+          <FacebookLogin
+            appId="361339196649491"
+            autoLoad
+            callback={responseFacebook}
+            // render={(renderProps) => (
+            //   <Button variant="outlined" startIcon={<FacebookIcon />} />
+            // )}
+          />
         </Stack>
 
         <Stack

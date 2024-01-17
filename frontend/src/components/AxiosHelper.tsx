@@ -1,13 +1,13 @@
 import  axios from 'axios';
 
-const baseURL = "https://three-facts.onrender.com/api";
+const baseURL = "http://127.0.0.1:8000/api/";
 
 export const axiosInstance = axios.create({
     baseURL : baseURL,
     timeout : 20000,
     headers : {
         Authorization : localStorage.getItem('access_token')
-            ? "JWT " + localStorage.getItem('access_token')
+            ? "Bearer " + localStorage.getItem('access_token')
             : null,
             'Content-Type' : 'application/json',
             accept : 'application/json',

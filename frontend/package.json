@@ -22,6 +22,7 @@
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-facebook-login": "^4.1.1",
     "react-material-ui-form-validator": "^3.0.1",
     "react-router-dom": "^6.15.0",
     "stream": "^0.0.2",
