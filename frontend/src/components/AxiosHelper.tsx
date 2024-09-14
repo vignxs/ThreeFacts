@@ -1,6 +1,6 @@
 import  axios from 'axios';
 
-const baseURL = "https://three-facts.onrender.com/api";
+const baseURL = "https://three-facts-be.vercel.app/api";
 
 export const axiosInstance = axios.create({
     baseURL : baseURL,
