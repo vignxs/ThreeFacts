@@ -66,7 +66,7 @@ const Login = () => {
         <Stack direction="column" alignItems="center" spacing={2}>
           <Box width={60} height={60}>
             <img
-              src="/logo.png"
+              src="/vignxs.png"
               loading="lazy"
               alt="Logo"
               style={{ maxWidth: "100%", height: "auto" }}
