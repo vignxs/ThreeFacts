@@ -55,3 +55,6 @@ uvicorn
 yarl
 django_database_prefix
 psycopg2-binary
+langchain_openai
+langchain_community
+langchain_core
