@@ -177,7 +177,7 @@ export const ThreeFacts = () => {
             />
             <IconButton
               type="submit" // Make this a submit button
-              color="primary"
+              color="secondary"
               sx={{ p: "10px" }}
             >
               <SendIcon />

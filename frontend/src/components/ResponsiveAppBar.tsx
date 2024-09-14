@@ -108,7 +108,9 @@ const ProfileButton: React.FC = () => {
     <>
       {isLoggedIn ? (
         <>
-          <Button onClick={handleMenuOpen}>{username}</Button>
+          <Button color={"secondary"} onClick={handleMenuOpen}>
+            {username}
+          </Button>
           <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
@@ -133,7 +135,7 @@ const ProfileButton: React.FC = () => {
           </Menu>
         </>
       ) : (
-        <Button component={Link} to="/signin" onClick={handleLogin}>
+        <Button color={"secondary"} component={Link} to="/signin" onClick={handleLogin}>
           Login
         </Button>
       )}
@@ -174,7 +176,8 @@ export default function ResponsiveAppBar(props: Props) {
                    backgroundColor: "#f0f0f0", // Change hover color as needed
                  },
                  boxShadow: `rgba(3, 3, 3, 0.1) 0px 2px 10px`,
-                 backgroundColor: "#90caf9", // Change hover color as needed
+                 backgroundColor: "#cdc2fe", // Change hover color as needed
+                 color: "#0b1b3d",
                }
              : {
                  borderRadius: 8, // Adjust the border radius as needed
@@ -182,6 +185,7 @@ export default function ResponsiveAppBar(props: Props) {
                  "&:hover": {
                    backgroundColor: "#f0f0f0", // Change hover color as needed
                  },
+                 color: "#0b1b3d",
                };
 
            return (
@@ -193,9 +197,9 @@ export default function ResponsiveAppBar(props: Props) {
                >
                  <ListItemIcon>
                    {index % 2 === 0 ? (
-                     <BubbleChartIcon />
+                     <BubbleChartIcon color="secondary" />
                    ) : (
-                     <SportsEsportsIcon />
+                     <SportsEsportsIcon color="secondary" />
                    )}
                  </ListItemIcon>
                  <ListItemText primary={text} />
@@ -217,7 +221,7 @@ export default function ResponsiveAppBar(props: Props) {
                    backgroundColor: "#f0f0f0", // Change hover color as needed
                  },
                  boxShadow: `rgba(3, 3, 3, 0.1) 0px 2px 10px`,
-                 backgroundColor: "#90caf9", // Change hover color as needed
+                 backgroundColor: "#cdc2fe", // Change hover color as needed
                }
              : {
                  borderRadius: 8, // Adjust the border radius as needed
@@ -235,7 +239,11 @@ export default function ResponsiveAppBar(props: Props) {
                  style={listItemStyle}
                >
                  <ListItemIcon>
-                   {index % 2 === 0 ? <SchoolIcon /> : <SchoolIcon />}
+                   {index % 2 === 0 ? (
+                     <SchoolIcon color="secondary" />
+                   ) : (
+                     <SchoolIcon color="secondary" />
+                   )}
                  </ListItemIcon>
                  <ListItemText primary={text} />
                </CustomListItemButton>
@@ -288,10 +296,11 @@ export default function ResponsiveAppBar(props: Props) {
                 noWrap
                 component="a"
                 href="/"
+                color={"secondary"}
                 sx={{
                   fontWeight: 500,
                   letterSpacing: ".02rem",
-                  color: "#000000",
+                  // color: "#000000",
                   textDecoration: "none",
                 }}
               >
